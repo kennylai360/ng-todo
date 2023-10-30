@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 100px;
+    justify-content: center;
+}
+
+footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding: 10px 10px;
+}
+

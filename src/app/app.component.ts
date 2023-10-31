@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import packageJson from '../../package.json';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,8 @@ export class AppComponent {
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
   })
+
+  public applicationVersion: string = packageJson.version;
 
   public submitForm(): void {
     console.log(this.loginForm.value);

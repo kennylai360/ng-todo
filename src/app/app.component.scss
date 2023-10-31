@@ -1,11 +1,11 @@
 :host {
-
-    h1 {
+    h1, h3 {
         text-align: center;
     }
 
-    .bodyCheck {
-        width: 100%;
-        background-color: yellow;
+    form {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
     }
 }

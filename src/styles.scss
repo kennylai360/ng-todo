@@ -3,7 +3,8 @@ body {
     display: flex;
     flex-direction: column;
     margin: 10px 100px;
-    justify-content: center;
+    height: 100%;
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
 }
 
 footer {
@@ -12,4 +13,3 @@ footer {
     bottom: 0;
     padding: 10px 10px;
 }
-

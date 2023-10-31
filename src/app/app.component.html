@@ -1,9 +1,61 @@
 <h1>Todo app</h1>
+<h3>A mess around angular application using Angular-material and Angular Reactive forms.</h3>
 <hr/>
-<div class="bodyCheck">test</div>
 
-<router-outlet></router-outlet>
+<form [formGroup]="loginForm">
+    
+    <mat-form-field>
+        <mat-label>
+            Username
+        </mat-label>
+        <input 
+            matInput
+            type="text"
+            formControlName="username">
+        <button 
+            *ngIf="loginForm.get('username')"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="loginForm.get('username')?.setValue('')"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>
+            Password
+        </mat-label>
+        <input 
+            matInput
+            type="password"
+            formControlName="password">
+        <button 
+            *ngIf="loginForm.get('password')"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="loginForm.get('password')?.setValue('')"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+
+    <button 
+        mat-raised-button
+        matTooltip="This button does not do anything other than printing the values to the browser console."
+        type="submit"
+        color='primary'
+        (click)="submitForm()"
+        [disabled]="!loginForm.valid">
+        Print values in browser console
+    </button>
+</form>
+
+<p>The values of the form are:</p>
+<pre>{{loginForm.value | json}}</pre>
 
 <footer>
-    Created by Kenny Lai 2023
+    <h5>Created by Kenny Lai 2023</h5>
 </footer>

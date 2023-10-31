@@ -1,6 +1,11 @@
-# ProjectAngular
+# NG-TODO Web app
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+
+The purpose of this project was just to mess around with Angular and its capabilities.
+It may end up being a very sophisticated TODO web app. We will see, its still a Work-In-Progress.
+Deployed to Netlify:
+https://kenny-ng-todo.netlify.app
 
 ## Development server
 

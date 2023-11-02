@@ -4,6 +4,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 The purpose of this project was just to mess around with Angular and its capabilities.
 It may end up being a very sophisticated TODO web app. We will see, its still a Work-In-Progress.
+
+OAuth authentication: https://auth0.com/
+
 Deployed to Netlify:
 https://kenny-ng-todo.netlify.app
 

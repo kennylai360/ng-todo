@@ -14,6 +14,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
+import { AuthModule } from '@auth0/auth0-angular';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +32,15 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatInputModule,
     MatIconModule,
     MatTooltipModule,
+
+    // Import the module into the application, with configuration
+    AuthModule.forRoot({
+      domain: 'ng-todo.uk.auth0.com',
+      clientId: 'ZfshzVAgUYKkT1qCB0Tg2QqGdU8HzZc2',
+      authorizationParams: {
+        redirect_uri: window.location.origin
+      }
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

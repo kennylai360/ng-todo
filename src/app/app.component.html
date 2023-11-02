@@ -51,10 +51,37 @@
         [disabled]="!loginForm.valid">
         Print values in browser console
     </button>
-</form>
 
-<p>The values of the form are:</p>
+    <p>The values of the form are:</p>
 <pre>{{loginForm.value | json}}</pre>
+
+    <hr style="width: 100%"/>
+    <h3>Testing oAuth Authentication</h3>
+
+    <p>Is user authenticated:
+        <span 
+            [ngStyle]="{'color' : (auth.isAuthenticated$ | async) ? 'green' : 'red', 'font-weight' : 'bold' }"
+        >
+            {{ auth.isAuthenticated$ | async }}
+        </span>
+    </p>
+
+    <button *ngIf="!(auth.isAuthenticated$ | async)"
+        mat-raised-button
+        type="button"
+        color='primary'
+        (click)="redirectToOAuth()">
+        OAuth login
+    </button>
+
+    <button *ngIf="(auth.isAuthenticated$ | async)"
+        mat-raised-button
+        type="button"
+        color='primary'
+        (click)="logoutOAuth()">
+        Logout
+    </button>
+</form>
 
 <footer>
     <h5>Created by Kenny Lai 2023 (Build:{{applicationVersion}})</h5>

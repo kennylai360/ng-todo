@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { AuthModule } from '@auth0/auth0-angular';
+import { HeaderModule } from './components/header/header.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { AuthModule } from '@auth0/auth0-angular';
     HeroesListComponent,
   ],
   imports: [
+    HeaderModule,
     ReactiveFormsModule,
     BrowserModule,
     RouterModule.forRoot(routes),

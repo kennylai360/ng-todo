@@ -1,90 +1,89 @@
 <app-header></app-header>
 
 <h1>Todo app</h1>
-<h3>A mess around Angular application using Angular-material and Angular Reactive forms.</h3>
-<hr/>
+<hr />
+
+<router-outlet></router-outlet>
 
 <form [formGroup]="loginForm">
-    
-    <mat-form-field>
-        <mat-label>
-            Username
-        </mat-label>
-        <input 
-            matInput
-            type="text"
-            formControlName="username">
-        <button 
-            *ngIf="loginForm.get('username')"
-            matSuffix
-            mat-icon-button
-            aria-label="Clear"
-            (click)="loginForm.get('username')?.setValue('')"
-        >
-          <mat-icon>close</mat-icon>
-        </button>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>
-            Password
-        </mat-label>
-        <input 
-            matInput
-            type="password"
-            formControlName="password">
-        <button 
-            *ngIf="loginForm.get('password')"
-            matSuffix
-            mat-icon-button
-            aria-label="Clear"
-            (click)="loginForm.get('password')?.setValue('')"
-        >
-          <mat-icon>close</mat-icon>
-        </button>
-      </mat-form-field>
-
-    <button 
-        mat-raised-button
-        matTooltip="This button does not do anything other than printing the values to the browser console."
-        type="submit"
-        color='primary'
-        (click)="submitForm()"
-        [disabled]="!loginForm.valid">
-        Print values in browser console
+  <mat-form-field>
+    <mat-label> Username </mat-label>
+    <input matInput type="text" formControlName="username" />
+    <button
+      *ngIf="loginForm.get('username')"
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      (click)="loginForm.get('username')?.setValue('')"
+    >
+      <mat-icon>close</mat-icon>
     </button>
+  </mat-form-field>
 
-    <p>The values of the form are:</p>
-<pre>{{loginForm.value | json}}</pre>
-
-    <hr style="width: 100%"/>
-    <h3>Testing oAuth Authentication</h3>
-
-    <p>Is user authenticated:
-        <span 
-            [ngStyle]="{'color' : (auth.isAuthenticated$ | async) ? 'green' : 'red', 'font-weight' : 'bold' }"
-        >
-            {{ auth.isAuthenticated$ | async }}
-        </span>
-    </p>
-
-    <button *ngIf="!(auth.isAuthenticated$ | async)"
-        mat-raised-button
-        type="button"
-        color='primary'
-        (click)="redirectToOAuth()">
-        OAuth login
+  <mat-form-field>
+    <mat-label> Password </mat-label>
+    <input matInput type="password" formControlName="password" />
+    <button
+      *ngIf="loginForm.get('password')"
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      (click)="loginForm.get('password')?.setValue('')"
+    >
+      <mat-icon>close</mat-icon>
     </button>
+  </mat-form-field>
 
-    <button *ngIf="(auth.isAuthenticated$ | async)"
-        mat-raised-button
-        type="button"
-        color='primary'
-        (click)="logoutOAuth()">
-        Logout
-    </button>
+  <button
+    mat-raised-button
+    matTooltip="This button does not do anything other than printing the values to the browser console."
+    type="submit"
+    color="primary"
+    (click)="submitForm()"
+    [disabled]="!loginForm.valid"
+  >
+    Print values in browser console
+  </button>
+
+  <p>The values of the form are:</p>
+  <pre>{{ loginForm.value | json }}</pre>
+
+  <hr style="width: 100%" />
+  <h3>Testing oAuth Authentication</h3>
+
+  <p>
+    Is user authenticated:
+    <span
+      [ngStyle]="{
+        color: (auth.isAuthenticated$ | async) ? 'green' : 'red',
+        'font-weight': 'bold'
+      }"
+    >
+      {{ auth.isAuthenticated$ | async }}
+    </span>
+  </p>
+
+  <button
+    *ngIf="!(auth.isAuthenticated$ | async)"
+    mat-raised-button
+    type="button"
+    color="primary"
+    (click)="redirectToOAuth()"
+  >
+    OAuth login
+  </button>
+
+  <button
+    *ngIf="auth.isAuthenticated$ | async"
+    mat-raised-button
+    type="button"
+    color="primary"
+    (click)="logoutOAuth()"
+  >
+    Logout
+  </button>
 </form>
 
 <footer>
-    <h5>Created by Kenny Lai 2023 (Build:{{applicationVersion}})</h5>
+  <h5>Created by Kenny Lai 2023 (Build:{{ applicationVersion }})</h5>
 </footer>

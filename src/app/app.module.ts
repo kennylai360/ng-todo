@@ -16,13 +16,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { AuthModule } from '@auth0/auth0-angular';
 import { HeaderModule } from './components/header/header.module';
+import { HeroesService } from './api/heroes.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CrisisListComponent,
-    HeroesListComponent,
-  ],
+  declarations: [AppComponent, CrisisListComponent, HeroesListComponent],
   imports: [
     HeaderModule,
     ReactiveFormsModule,
@@ -34,17 +32,17 @@ import { HeaderModule } from './components/header/header.module';
     MatInputModule,
     MatIconModule,
     MatTooltipModule,
-
+    HttpClientModule,
     // Import the module into the application, with configuration
     AuthModule.forRoot({
       domain: 'ng-todo.uk.auth0.com',
       clientId: 'ZfshzVAgUYKkT1qCB0Tg2QqGdU8HzZc2',
       authorizationParams: {
-        redirect_uri: window.location.origin
-      }
+        redirect_uri: window.location.origin,
+      },
     }),
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [HeroesService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

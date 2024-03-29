@@ -1,11 +1,12 @@
 :host {
-    h1, h3 {
-        text-align: center;
-    }
+  h1,
+  h3 {
+    text-align: center;
+  }
 
-    form {
-        display:flex;
-        flex-direction: column;
-        justify-content: center;
-    }
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
